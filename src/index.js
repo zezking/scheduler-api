@@ -1,4 +1,4 @@
-const PORT = process.env.PORT || 8001;
+const PORT = process.env.PORT || 5000;
 const ENV = require("./environment");
 
 const app = require("./application")(ENV, { updateAppointment });
@@ -7,8 +7,8 @@ const server = require("http").Server(app);
 const WebSocket = require("ws");
 const wss = new WebSocket.Server({ server });
 
-wss.on("connection", socket => {
-  socket.onmessage = event => {
+wss.on("connection", (socket) => {
+  socket.onmessage = (event) => {
     console.log(`Message Received: ${event.data}`);
 
     if (event.data === "ping") {
@@ -24,7 +24,7 @@ function updateAppointment(id, interview) {
         JSON.stringify({
           type: "SET_INTERVIEW",
           id,
-          interview
+          interview,
         })
       );
     }
