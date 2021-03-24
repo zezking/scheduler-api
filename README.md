@@ -15,7 +15,7 @@ Copy the `.env.example` file to `.env.development` and fill in the necessary Pos
 ```
 PGHOST=localhost
 PGUSER=development
-PGDATABASE=scheduler_development
+PGDATABASE=development
 PGPASSWORD=development
 PGPORT=5432
 ```
@@ -34,11 +34,13 @@ The `development` data is random. Each time we seed we expect to see different a
 ## Run The Server
 
 Running the server normally
+
 ```sh
 npm start
 ```
 
 Running the server so it returns an error when saving/deleting for testing the client's error handling capabilities
+
 ```sh
 npm run error
 ```
